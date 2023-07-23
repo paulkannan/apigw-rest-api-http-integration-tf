@@ -22,7 +22,7 @@ From the command line, use AWS SAM to deploy the AWS resources for the pattern a
 
 terraform init
 terraform plan -out="tfplan"
-terraform apply "tfplan"
+terraform apply -var-file="variables.tfvars"
 During the prompts:
 
 Enter a stack name

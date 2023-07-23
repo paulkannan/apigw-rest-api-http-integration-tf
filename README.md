@@ -48,3 +48,4 @@ Cleanup
   terraform destroy
 - Confirm the stack has been deleted
   aws cloudformation list-stacks --query "StackSummaries[?contains(StackName,'STACK_NAME')].StackStatus"
+  

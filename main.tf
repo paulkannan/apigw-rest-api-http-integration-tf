@@ -2,11 +2,13 @@ provider "aws" {
   region = "us-east-1"  # Replace this with your desired AWS region
 }
 
+# REST API
 resource "aws_api_gateway_rest_api" "api" {
   name        = "apigw-rest-api-http-integration"
   description = "HTTP Integration REST API demo"
 }
 
+# GET Method with HTTP integration
 resource "aws_api_gateway_method" "root_method_get" {
   rest_api_id   = aws_api_gateway_rest_api.api.id
   resource_id   = aws_api_gateway_rest_api.api.root_resource_id
@@ -38,6 +40,7 @@ resource "aws_api_gateway_stage" "stage" {
   deployment_id = aws_api_gateway_deployment.deployment.id
 }
 
+# API Gateway endpoint to be used during tests
 output "api_endpoint" {
   description = "API Endpoint"
   value       = aws_api_gateway_stage.stage.invoke_url
